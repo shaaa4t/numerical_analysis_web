@@ -7,7 +7,7 @@
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
-        <a href="#Bisection">Bisection</a>
+        <a href="#Bisection">Bisection method</a>
         <a href="#False">False position method</a>
       </div>
     </div>

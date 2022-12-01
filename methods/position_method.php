@@ -1,5 +1,5 @@
 
-          <h4 class="text-primary">position method</h4>
+          <h4 class="text-primary">False position method</h4>
           <div class="w-60 px-2 py-3 mx-auto">
             <div class="input-group mb-3 d-flex align-items-center">
               <label class="mx-2" for="fx">f (x)</label>
