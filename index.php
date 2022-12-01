@@ -83,10 +83,10 @@
 
             switch ($chapter) {
               case "bisection":
-                  include('./Bisection.php');
+                  include('./methods/Bisection.php');
                 break;
               case "position_method":
-                include('./position_method.php');
+                include('./methods/position_method.php');
                 break;
               
               default:
