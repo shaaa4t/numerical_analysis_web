@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<h4 class="text-primary">Bisection </h4>
+<h4 class="text-primary">Bisection</h4>
 
 <form action="" method="POST">
   <div class="w-60 px-2 py-3 mx-auto">

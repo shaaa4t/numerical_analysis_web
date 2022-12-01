@@ -72,23 +72,31 @@
 
     <div class="container " style="margin-top: 80px; padding: 30px 0;">
       <div class="row">
-
       <?php include('./accordion.php') ?>
 
         <!--  -->
 
         <div class="col-12 col-xl-9 px-3">
           <?php
-            $chapter = "bisection";
+            $chapter = "bisection" || "position_method";
 
-            switch ($chapter) {
+//
+//          if ($chapter=="bisection"){
+//              include('./methods/Bisection.php');
+//
+//          }elseif ($chapter=="position_method")
+//              include('./methods/position_method.php');
+//          else
+//              echo "Choose One Correct";
+          switch ($chapter) {
               case "bisection":
                   include('./methods/Bisection.php');
-                break;
+
+                    break;
               case "position_method":
                 include('./methods/position_method.php');
                 break;
-              
+
               default:
                 echo "Choose One Correct";
             }

@@ -1,9 +1,25 @@
+<?php
 
-          <h4 class="text-primary">False position method</h4>
+$fun = $a = $b = $n = $p = '';
+$TOL = 0.0001;
+$store_x_results = array();
+$FA_results = array();
+$isSubmitted = false;
+
+if (isset($_POST['submit'])) {
+  $isSubmitted = true;
+  $a = $_POST['a'];
+  $b = $_POST['b'];
+  $n = $_POST['n'];
+  $fun = $_POST['fun'];
+}
+?>
+          <h4 class="text-primary">False position </h4>
+          <form action="" method="POST">
           <div class="w-60 px-2 py-3 mx-auto">
             <div class="input-group mb-3 d-flex align-items-center">
-              <label class="mx-2" for="fx">f (x)</label>
-              <input type="text" class="form-control py-1" placeholder="Username" aria-label="Username" aria-describedby="fx">
+              <label class="mx-2" for="fx">f(x)</label>
+              <input type="text" class="form-control py-1" name="fun" placeholder="Write the function f(x)" aria-label="Write the function f(x)" aria-describedby="fx">
             </div>
 
             <div class="input-group mb-3 d-flex align-items-center justify-content-between ">
@@ -16,40 +32,34 @@
 
             <div class="input-group mb-3 d-flex align-items-center ">
               <label class="mx-2" for="n">maximum repetition n</label>
-              <input type="number" class="form-control py-1" value="6" max="10" min="3" aria-describedby="n">
+                <label>
+                    <input type="number" class="form-control py-1" value="6" max="50" min="3" aria-describedby="n">
+                </label>
             </div>
 
-            <button class="btn btn-primary">Execute</button>
+<!--            <button class="btn btn-primary">Execute</button>-->
+              <input class="btn btn-primary" type="submit" value="Execute" name="submit">
+              <table class="table table-hover mt-5">
+                  <thead>
+                  <tr class="table-primary">
+                      <th scope="col">n</th>
+                      <th scope="col">x</th>
+                      <th scope="col">f(x)</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php for($i=0; $i<$n; $i++):
+                      ?>
+                      <tr>
+                          <th scope="row"><?php echo $i+1 ?></th>
+<!--                          <td>--><?php //echo $store_x_results[$i] ?><!--</td>-->
+<!--                          <td>--><?php //echo $FA_results[$i] ?><!--</td>-->
+                      </tr>
+                  <?php endfor;
+                  ?>
+                  </tbody>
+              </table>
 
-            <table class="table table-hover mt-5">
-              <thead>
-                <tr class="table-primary">
-                  <th scope="col">n</th>
-                  <th scope="col">x</th>
-                  <th scope="col">accuracy x</th>
-                  <th scope="col">f(x)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>1</td>
-                  <td>5</td>
-                  <td>4.71633781453677374</td>
-                </tr>
-                <tr>
-                  <th scope="row">22</th>
-                  <td>4</td>
-                  <td>.5</td>
-                  <td>4.71633781453677374</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td >5</td>
-                  <td >0.50125</td>
-                  <td>4.71633781453677374</td>
-                </tr>
-              </tbody>
-            </table>
-            
           </div>
+
+ </form>

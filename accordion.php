@@ -1,3 +1,4 @@
+
 <div class="accordion col-12 col-xl-3" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -7,7 +8,7 @@
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
-        <a href="#Bisection">Bisection method</a>
+        <a href ="#Bisection">Bisection method</a>
         <a href="#False">False position method</a>
       </div>
     </div>
