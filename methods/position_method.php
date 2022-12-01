@@ -3,7 +3,7 @@
 $fun = $a = $b = $n = $p = '';
 $TOL = 0.0001;
 $store_x_results = array();
-$FA_results = array();
+$FP_results = array();
 $isSubmitted = false;
 
 if (isset($_POST['submit'])) {
@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
                       <tr>
                           <th scope="row"><?php echo $i+1 ?></th>
 <!--                          <td>--><?php //echo $store_x_results[$i] ?><!--</td>-->
-<!--                          <td>--><?php //echo $FA_results[$i] ?><!--</td>-->
+<!--                          <td>--><?php //echo $FP_results[$i] ?><!--</td>-->
                       </tr>
                   <?php endfor;
                   ?>
