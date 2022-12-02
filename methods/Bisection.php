@@ -3,7 +3,7 @@
 $errors = array('fun' => '', 'a' => '', 'b' => '', 'n' => '', 'invalidFunction' => '', 'a_equal_b' => '');
 
 $x0 = $x1 = $fun = $a = $b =  $p = '';
-$n = 1;
+$n = 5;
 $TOL = 0.0001;
 $store_x_results = array();
 $FP_results = array();
@@ -110,7 +110,7 @@ if (isset($_POST['submit'])) {
 
     <div class="input-group mb-3 d-flex align-items-center ">
       <label class="mx-2" for="n">maximum repetition n</label>
-      <input type="number" name="n" class="form-control py-1" value="<?php echo htmlspecialchars($n) ?>"  max="500" min="1" aria-describedby="n">
+      <input type="number" name="n" class="form-control py-1" value="<?php echo htmlspecialchars($n) ?>"  max="500" min="5" aria-describedby="n">
       <div style="color: red;">
         <?php echo $errors['n']; ?>
       </div>
@@ -118,7 +118,7 @@ if (isset($_POST['submit'])) {
     <!-- <div style="color: red;">
         <?php echo $errors['n']; ?>
       </div> -->
-    <input class="btn btn-primary" type="submit" value="Execute" name="submit">
+    <input class="btn btn-primary w-100 d-block" type="submit" value="Execute" name="submit">
     <div style="color: red; text-align: center;">
       <h3 style="font-size: medium;">
         <?php echo $errors['a_equal_b']; ?>

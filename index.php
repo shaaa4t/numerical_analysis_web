@@ -42,6 +42,14 @@
       margin-top: 3px
     }
 
+    table, td, th {
+      border: #CCCCCC;
+      border-width: 0.2px;
+      border-style: solid;
+      border-collapse: collapse;
+
+    }
+
 
 
   </style>
@@ -78,7 +86,7 @@
 
         <div class="col-12 col-xl-9 px-3">
           <?php
-            $chapter = "bisection" || "position_method";
+            $chapter = "position_method";//"bisection" || "position_method"
 
 //
 //          if ($chapter=="bisection"){
