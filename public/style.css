@@ -150,11 +150,12 @@ h4.text-primary::after {
   transform: translateX(-50%);
   width: 14px;
   height: 14px;
-  border-radius: 50%;
+  border-radius: 50%; 
   border: 2px solid #333;
   bottom: -21px;
   background-color: white;
 }
+
 
 div#mohammed {
   text-align: center;
