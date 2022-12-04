@@ -1,0 +1,172 @@
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: #f6f6f6 */
+  font-family: "Poppins",sans-serif;
+
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.content a {
+  color: #222;
+  text-decoration: none;
+  position: relative;
+  padding-left: 20px;
+  transition: .2s all;
+  display: block;
+}
+
+.content a:hover {
+  color: #0d6efd;
+}
+
+.content a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  height: 7px;
+  border: 7px solid;
+  border-color: transparent transparent transparent #3a86ce;
+  margin-top: 3px;
+}
+
+table,
+td,
+th {
+  border: #CCCCCC;
+  border-width: 0.2px;
+  border-style: solid;
+  border-collapse: collapse;
+}
+
+.navbar {
+  background: rgb(58, 134, 206);
+}
+
+.container {
+  /* width: 45%;
+  min-width: 500px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%; */
+}
+
+.wrapper {
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  padding: 15px 35px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgb(0 0 50 / 20%);
+}
+
+.toggle,
+.content {
+  font-family: "Poppins", sans-serif;
+}
+
+.toggle {
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #111130;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.content {
+  position: relative;
+  font-size: 14px;
+  text-align: justify;
+  line-height: 30px;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.32s;
+
+}
+
+a.navbar-brand {
+  font-size: 15px;
+}
+
+.nav-item a{
+  padding: 10px 55px;
+  display: block;
+  width: 95px;
+  text-align: center;
+}
+
+.nav-item.active {
+  background: #fff;
+  color: #3a86ce !important;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  font-weight: 500;
+  padding: 0 15px;
+}
+
+.nav-item.active a {
+  color: #3a86ce !important;
+}
+
+h4.text-primary {
+  text-align: center;
+  font-size: 60px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+h4.text-primary::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  background-color: #333;
+  bottom: -15px;
+  width: 120px;
+}
+
+h4.text-primary::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%; 
+  border: 2px solid #333;
+  bottom: -21px;
+  background-color: white;
+}
+
+
+div#mohammed {
+  text-align: center;
+  font-size: 30px;
+  background: skyblue;
+  width: fit-content;
+  margin: 80px auto;
+  padding: 20px 50px;
+  border-radius: 15px;
+}
+span.error {
+  font-size: 11px;
+  padding-left: 7px;
+}

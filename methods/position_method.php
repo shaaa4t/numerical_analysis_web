@@ -82,9 +82,9 @@ if (isset($_POST['submit'])) {
             <label class="mx-2" for="fx">f(x)</label>
             <input type="text" class="form-control py-1" name="fun" value="<?php echo htmlspecialchars($fun) ?>"
                 placeholder="Write the function f(x)" aria-label="Write the function f(x)" aria-describedby="fx">
-            <div style="color: red;">
+            <span style="color: red;" class="error">
                 <?php echo $errors['fun']; ?>
-            </div>
+            </span>
         </div>
 
         <div class="input-group mb-3 d-flex align-items-center justify-content-between ">
@@ -92,24 +92,24 @@ if (isset($_POST['submit'])) {
             <!--  value="<?php echo htmlspecialchars($a) ?>" -->
             <input type="number" name="p0" value="<?php echo htmlspecialchars($x0) ?>" class="form-control py-1"
                 placeholder="p0" aria-label="p0" aria-describedby="p0">
-            <div style="color: red;">
+            <span style="color: red;" class="error">
                 <?php echo $errors['p0']; ?>
-            </div>
+            </span>
             <label class="mx-2" for="p1">p1</label>
             <input type="number" name="p1" value="<?php echo htmlspecialchars($x1) ?>" class="form-control py-1"
                 placeholder="p1" aria-label="p1" aria-describedby="p1">
-            <div style="color: red;">
+            <span style="color: red;" class="error">
                 <?php echo $errors['p1']; ?>
-            </div>
+            </span>
         </div>
 
         <div class="input-group mb-3 d-flex align-items-center ">
             <label class="mx-2" for="n">maximum repetition n</label>
             <input type="number" name="n" class="form-control py-1" value="<?php echo htmlspecialchars($n) ?>" max="500"
                 min="5" aria-describedby="n">
-            <div style="color: red;">
+            <span style="color: red;" class="error">
                 <?php echo $errors['n']; ?>
-            </div>
+            </span>
         </div>
 
         <input class="btn btn-primary w-100 d-block" type="submit" value="Execute" name="submit">
