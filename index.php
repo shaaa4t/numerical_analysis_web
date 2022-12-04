@@ -23,7 +23,7 @@
 <body>
   <nav class="navbar navbar-expand-lg py-2">
     <div class="container ">
-      <a class="navbar-brand text-light" href="#">
+      <a class="navbar-brand text-light" href="index.php">
         <img src="./public/pngegg.png" width="40" alt="">
         <span>Numerical Analysis</span>
       </a>
@@ -44,7 +44,7 @@
   </nav>
 
 
-    <div class="container " style="margin-top: 80px; padding: 30px 0;">
+    <div class="container" style="margin-top: 80px; padding: 30px 0;">
       <div class="row">
       <?php include('./accordion.php') ?>
 
@@ -78,8 +78,8 @@
 
     <script>
       let mohammed = document.getElementById('mohammed');
-      if(window.location.href === "http://localhost/ahmed/numerical_analysis_web-main/") {
-        mohammed.textContent = "Please Choose Equation From The List";
+      if(window.location.href === "http://localhost:1234/numerical_analysis/" || window.location.href === "http://localhost:1234/numerical_analysis/index.php") {
+        mohammed.textContent = "Please Choose The Method From The List";
       } else {
         mohammed.remove()
       }
