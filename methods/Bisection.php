@@ -12,7 +12,7 @@ $isSubmitted = false;
 
 if (isset($_POST['submit'])) {
     if (empty($_POST['a'])) {
-        $errors['a'] = 'a is required <br />';
+        $errors['a'] = 'aa is required <br />';
     } else {
         $a = $_POST['a'];
         $x0 = $a;
@@ -40,63 +40,71 @@ if (isset($_POST['submit'])) {
     if (!empty($a) && !empty($b) && !empty($n) && !empty($fun)) {
         $isSubmitted = true;
         try {
-            if (preg_match("/(?:sin|cos|tan)+/", $fun)){
+            if (preg_match("/(?:sin|cos|tan)+/", $fun)) {
                 $filteredExpression = preg_replace('/[^\(\)\+\-\.\*\/\d+\.xsincota]/', '**', $fun);
-            //echo $filteredExpression; // TODO: do valid for (tan, cos, sin) functions
-            $actualFormula = str_replace('x', $conv[$a], $filteredExpression);
-            $FA = eval('return ' . $actualFormula . ';');
-            }
-            else {
+                //echo $filteredExpression; // TODO: do valid for (tan, cos, sin) functions
+                $actualFormula = str_replace('x', $conv[$a], $filteredExpression);
+            } else {
                 $filteredExpression = preg_replace('/[^\(\)\+\-\.\*\/\d+\.xsincota]/', '**', $fun);
                 $actualFormula = str_replace('x', $a, $filteredExpression);
-                $FA = eval('return ' . $actualFormula . ';');
 
             }
-            /**
-            if (preg_match("/(?:sin|cos|tan)+/", $fun)){
-            $filteredExpression = preg_replace('/[^\(\)\+\-\.\*\/\d+\.xsincota]/', '**', $fun);
-            //echo $filteredExpression; // TODO: do valid for (tan, cos, sin) functions
-            $actualFormula_p0 = str_replace('x', $conv[$p0] ,$filteredExpression);
-            $actualFormula_p1 = str_replace('x', $conv[$p1], $filteredExpression);
-
-            }
-            else {
-
-            $filteredExpression = preg_replace('/[^\(\)\+\-\.\*\/\d+\.xsincota]/', '**', $fun);
-            //echo $filteredExpression; // TODO: do valid for (tan, cos, sin) functions
-            $actualFormula_p0 = str_replace('x', $p0, $filteredExpression);
-            $actualFormula_p1 = str_replace('x', $p1, $filteredExpression);
-            }*/
+            $FA = eval('return ' . $actualFormula . ';');
             $i = 1;
             while ($i <= $n) { // 1 <= 50
                 // p = a + (b - a)/2;
-                $p = $a + ($b - $a) / 2;
-
+                if (preg_match("/(?:sin|cos|tan)+/", $fun)) {
+                    $p = $conv[$a] + ($conv[$b] - $conv[$a]) / 2;
+                } else {
+                    $p = $a + ($b - $a) / 2;
+                }
                 $filteredExpression = preg_replace('/[^\(\)\+\-\.\*\/\d+\.xsincota]/', '**', $fun);
-
                 $actualFormula = str_replace('x', $p, $filteredExpression);
+                //   $actualFormula = str_replace('x', $p, $filteredExpression);
                 $FP = eval('return ' . $actualFormula . ';');
                 //If FP = 0 or (b − a)/2 < TOL
-                if ($FP == 0 || ($b - $a) / 2 < $TOL) {
-                    // echo $p;
-                    $errors['a_equal_b'] = 'a is equal to b';
-                    $isSubmitted = false;
-                    break;
-                }
-
-                //If FA · FP > 0 then set a = p;
-                if ($FA * $FP > 0) {
-                    $a = $p;
-                    $FA = $FP;
+                if (preg_match("/(?:sin|cos|tan)+/", $fun)) {
+                    if ($FP == 0 || ($conv[$b] - $conv[$a]) / 2 < $TOL) {
+                        // echo $p;
+                        $errors['a_equal_b'] = 'a is equal to b';
+                        $isSubmitted = false;
+                        break;
+                    }
                 } else {
-                    $b = $p;
-                }
-                $store_x_results[] = $p;
-                $FP_results[] = $FP;
+                        if ($FP == 0 || ($b - $a) / 2 < $TOL) {
+                            // echo $p;
+                            $errors['a_equal_b'] = 'a is equal to b';
+                            $isSubmitted = false;
+                            break;
+                        }
 
-                $i = $i + 1;
+                }
+                    //If FA · FP > 0 then set a = p;
+                    if ($FA * $FP > 0) {
+                        if (preg_match("/(?:sin|cos|tan)+/", $fun)) {
+                            $conv[$a] = $p;
+                        }
+                        else{
+                            $a = $p;
+                        }
+                        $FA = $FP;
+
+                    } else {
+                        if (preg_match("/(?:sin|cos|tan)+/", $fun)) {
+                            $conv[$b] = $p;
+                        }
+                        else{
+                        $b = $p;
+                        }
+                    }
+                    $store_x_results[] = $p;
+                    $FP_results[] = $FP;
+
+                    $i = $i + 1;
+
             }
-        } catch (\Throwable $th) {
+        }
+        catch (\Throwable $th) {
             $errors['invalidFunction'] = 'Invalid Function <br />';
             $isSubmitted = false;
         }

@@ -40,7 +40,7 @@
 
         <div class="wrapper">
             <button class="toggle">
-                Chapter 1
+                Chapter 2
                 <i class="fas fa-plus icon"></i>
             </button>
             <div class="content">
@@ -50,16 +50,16 @@
         </div>
         <div class="wrapper">
             <button class="toggle">
-                Chapter 2
+                Chapter 3
                 <i class="fas fa-plus icon"></i>
             </button>
             <div class="content">
-            <a href ="?equation3=1">Bisection method</a>
+            <a href ="?lagrange=1">Lagrange Method</a>
             </div>
         </div>
         <div class="wrapper">
             <button class="toggle">
-                Chapter 3
+                Chapter 4
                 <i class="fas fa-plus icon"></i>
             </button>
             <div class="content">
