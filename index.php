@@ -62,15 +62,19 @@
         </div>
         <?php
 
-          if (isset($_GET['bisection'])) {
-            include('./methods/Bisection.php');
-          } else if (isset($_GET['position'])) {
-            include('./methods/position_method.php');
-          } else if (isset($_GET['lagrange'])) {
-            include('./methods/lagrange.php');
-          }
+        if (isset($_GET['bisection'])) {
+          include('./methods/Bisection.php');
+        } else if (isset($_GET['position'])) {
+          include('./methods/position_method.php');
+        } else if (isset($_GET['lagrange'])) {
+          include('./methods/lagrange.php');
+        } else if (isset($_GET['curve_ax^b'])) {
+          include('./methods/curve_ax_b.php');
+        } else if (isset($_GET['curve_ab^x'])) {
+          include('./methods/curve_ab_x.php');
+        }
 
-          ?>
+        ?>
       </div>
 
     </div>

@@ -1,13 +1,18 @@
 <?php
 
-$errors = array('divideByZeroError' => '', 'x_array' => '', 'y_array' => '', 'xp' => '', 'n' => '', 'invalidInput' => '');
+$errors = array('divideByZeroError' => '', 'x_array' => '', 'y_array' => '', 'n' => '', 'invalidInput' => '');
 $x_array = array();
 $y_array = array();
 $n = 5;
-$xp = (float) 0;
+
 $isSubmitted = false;
 $isSolved = false;
-$result = '';
+
+$sumX = $sumX2 = $sumY = $sumXY = 0;
+
+$a_result = '';
+$b_result = '';
+
 
 if (isset($_POST['submit'])) {
 
@@ -17,7 +22,6 @@ if (isset($_POST['submit'])) {
         $n = $_POST['n'];
         $isSubmitted = true;
     }
-
 }
 
 
@@ -28,31 +32,34 @@ if (isset($_POST['solve'])) {
     } else {
         $n = $_POST['n'];
     }
-    if (empty($_POST['xp'])) {
-        $errors['xp'] = 'interpolation point is required <br />';
-    } else {
-        $xp = $_POST['xp'];
-    }
 
-
-    if (!empty($_POST['n']) && !empty($_POST['xp'])) {
+    if (!empty($_POST['n'])) {
 
         for ($i = 0; $i < $n; $i++) {
             $x_array[$i] = $_POST['x' . $i];
             $y_array[$i] = $_POST['y' . $i];
         }
+
         try {
-            $yp = 0;
             for ($i = 0; $i < $n; $i++) {
-                $p = 1;
-                for ($j = 0; $j < $n; $j++) {
-                    if ($i != $j) {
-                        $p = $p * ($xp - $x_array[$j]) / ($x_array[$i] - $x_array[$j]);
-                    }
-                }
-                $yp = $yp + $p * $y_array[$i];
+                $sumX = $sumX + $x_array[$i];
+                $sumX2 = $sumX2 + $x_array[$i] * $x_array[$i];
+                $sumY = $sumY + log($y_array[$i]);
+                $sumXY = $sumXY + $x_array[$i] * log($y_array[$i]);
             }
-            $result = $yp;
+
+            # Finding coefficients A and B
+            $B = ($n * $sumXY - $sumX * $sumY) / ($n * $sumX2 - $sumX * $sumX);
+            $A = ($sumY - $B * $sumX) / $n;
+
+            # Obtaining a and b
+            $a = exp($A);
+            $b = exp($B);
+
+            # Displaying coefficients a, b & equation
+            $a_result = $a;
+            $b_result = $b;
+
             $isSolved = true;
         } catch (\DivisionByZeroError $th) {
             $error['divideByZeroError'] = 'Please enter different values of numbers of x';
@@ -62,7 +69,8 @@ if (isset($_POST['solve'])) {
 }
 
 ?>
-<h4 class="text-primary">Lagrange</h4>
+<h4 class="text-primary">Curve Fitting <br> y = ab<sup>x</sup></h4>
+
 
 <form action="" method="POST">
     <div class="w-60 px-2 py-3 mx-auto">
@@ -70,7 +78,7 @@ if (isset($_POST['solve'])) {
         <div class="input-group mb-3 d-flex align-items-center ">
             <label class="mx-2" for="n">Enter Number</label>
             <label>
-                <input type="number" name="n" class="form-control py-1"
+                <input type="text" name="n" class="form-control py-1"
                     value="<?php echo htmlspecialchars(empty($n) ? 0 : $n) ?>" max="500" min="2" aria-describedby="n">
             </label>
             <div style="color: red;">
@@ -115,15 +123,6 @@ if (isset($_POST['solve'])) {
                 ?>
             </tbody>
         </table>
-        <label class="mx-2" for="n">interpolation point</label>
-
-        <label>
-            <input class="form-control py-1" type="text" name="xp" step="any" value="<?php echo htmlspecialchars($xp) ?>"
-                aria-describedby="xp">
-        </label>
-        <div style="color: red;">
-            <?php echo $errors['xp']; ?>
-        </div>
         <label>
             <input class="btn btn-primary w-100 d-block" name="solve" type="submit" value="Solve">
         </label>
@@ -141,7 +140,31 @@ if (isset($_POST['solve'])) {
             </div>
             <div>
                 <h3 style="font-size: x-large; color: green;">
-                    <?php echo $isSolved ? 'f(' . $xp . ') = ' . $result : ''; ?>
+                    <?php echo $isSolved ? 'Coefficients are' : ''; ?>
+                    <?php
+                    if ($isSolved):
+                    ?>
+                    <table class="table table-hover mt-5">
+                        <thead>
+                            <tr class="table-primary">
+                                <th scope="col">a</th>
+                                <th scope="col">b</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <?php echo $a_result ?>
+                                </td>
+                                <td>
+
+                                    <?php echo $b_result ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <?php endif; ?>
+
                 </h3>
             </div>
         </center>

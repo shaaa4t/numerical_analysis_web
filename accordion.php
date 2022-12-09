@@ -63,6 +63,8 @@
                 <i class="fas fa-plus icon"></i>
             </button>
             <div class="content">
+            <a href ="?curve_ax^b=1">Curve Fitting ax<sup>b</sup></a>
+            <a href ="?curve_ab^x=1">Curve Fitting ab<sup>x</sup></a>
             </div>
         </div>
 
