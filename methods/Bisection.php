@@ -121,40 +121,40 @@ if (isset($_POST['submit'])) {
         <div class="input-group mb-3 d-flex align-items-center">
             <label class="mx-2" for="fx">f(x)</label>
             <input type="text" name="fun" value="<?php echo htmlspecialchars($fun) ?>"  class="form-control py-1" placeholder="Write the function f(x)"
-                   aria-label="Write the function f(x)" aria-describedby="fx">
-            <div style="color: red;">
+                   aria-label="Write the function f(x)" aria-describedby="fx" required>
+            <!-- <div style="color: red;">
                 <?php echo $errors['fun']; ?>
-            </div>
+            </div> -->
         </div>
         <div class="input-group mb-3 d-flex align-items-center justify-content-between ">
             <label class="mx-2" for="a">a</label>
             <!--  value="<?php echo htmlspecialchars($a) ?>" -->
-            <input type="number" name="a" value="<?php echo htmlspecialchars($x0) ?>" class="form-control py-1" placeholder="a" aria-label="a" aria-describedby="a">
-            <div style="color: red;">
+            <input type="number" name="a" value="<?php echo htmlspecialchars($x0) ?>" class="form-control py-1" placeholder="a" aria-label="a" aria-describedby="a" required>
+            <!-- <div style="color: red;">
                 <?php echo $errors['a']; ?>
-            </div>
+            </div> -->
             <label class="mx-2" for="b">b</label>
-            <input type="number" name="b"  value="<?php echo htmlspecialchars($x1) ?>"  class="form-control py-1" placeholder="b" aria-label="b" aria-describedby="b">
-            <div style="color: red;">
+            <input type="number" name="b"  value="<?php echo htmlspecialchars($x1) ?>"  class="form-control py-1" placeholder="b" aria-label="b" aria-describedby="b" required>
+            <!-- <div style="color: red;">
                 <?php echo $errors['b']; ?>
-            </div>
+            </div> -->
         </div>
 
         <div class="input-group mb-3 d-flex align-items-center ">
             <label class="mx-2" for="n">maximum repetition n</label>
-            <input type="number" name="n" class="form-control py-1" value="<?php echo htmlspecialchars($n) ?>"  max="500" min="5" aria-describedby="n">
-            <div style="color: red;">
+            <input type="number" name="n" class="form-control py-1" value="<?php echo htmlspecialchars($n) ?>"  max="500" min="5" aria-describedby="n" required>
+            <!-- <div style="color: red;">
                 <?php echo $errors['n']; ?>
-            </div>
+            </div> -->
         </div>
         <!-- <div style="color: red;">
         <?php echo $errors['n']; ?>
       </div> -->
-        <input class="btn btn-primary w-100 d-block" type="submit" value="Execute" name="submit">
+        <input class="btn btn-primary w-100 d-block" type="submit" value="Execute" name="submit" required>
         <div style="color: red; text-align: center;">
-            <h3 style="font-size: medium;">
+            <!-- <h3 style="font-size: medium;">
                 <?php echo $errors['a_equal_b']; ?>
-            </h3>
+            </h3> -->
         </div>
 
         <?php if ($isSubmitted == true): ?>

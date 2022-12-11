@@ -78,14 +78,15 @@ if (isset($_POST['solve'])) {
         <div class="input-group mb-3 d-flex align-items-center ">
             <label class="mx-2" for="n">Enter Number</label>
             <label>
-                <input type="text" name="n" class="form-control py-1"
-                    value="<?php echo htmlspecialchars(empty($n) ? 0 : $n) ?>" max="500" min="2" aria-describedby="n">
+                <input type="text" name="n" class="form-control py-1"value="<?php echo htmlspecialchars(empty($n) ? 0 : $n) ?>"
+                    max="500" min="2" aria-describedby="n" required>
+                    <!--  -->
             </label>
             <div style="color: red;">
                 <?php echo $errors['n']; ?>
             </div>
         </div>
-        <input class="btn btn-primary w-100 d-block" type="submit" value="Execute" name="submit">
+        <input class="btn btn-primary w-100 d-block" type="submit" value="Execute" name="submit" >
 
         <?php if ($isSubmitted): ?>
 
@@ -106,14 +107,14 @@ if (isset($_POST['solve'])) {
                     </th>
                     <th scope="row">
                         <label>
-                            <input class="form-control py-1" name="<?php echo 'x' . $i ?>" type="number" step="any"
+                            <input class="form-control py-1" name="<?php echo 'x' . $i ?>" type="number" step="any" required
                                 value="<?php echo htmlspecialchars($x_array[$i]) ?>">
 
                         </label>
                     </th>
                     <th scope="row">
                         <label>
-                            <input class="form-control py-1" name="<?php echo 'y' . $i ?>" type="number" step="any"
+                            <input class="form-control py-1" name="<?php echo 'y' . $i ?>" type="number" step="any" required
                                 value="<?php echo htmlspecialchars($y_array[$i]) ?>">
                         </label>
                     </th>
@@ -123,9 +124,7 @@ if (isset($_POST['solve'])) {
                 ?>
             </tbody>
         </table>
-        <label>
-            <input class="btn btn-primary w-100 d-block" name="solve" type="submit" value="Solve">
-        </label>
+            <input class="btn btn-primary w-100 d-block mt-4" name="solve" type="submit" value="Solve">
         <?php endif; ?>
         <center>
             <div style="color: red; text-align: center;">
@@ -140,10 +139,12 @@ if (isset($_POST['solve'])) {
             </div>
             <div>
                 <h3 style="font-size: x-large; color: green;">
+                <p>
                     <?php echo $isSolved ? 'Coefficients are' : ''; ?>
                     <?php
                     if ($isSolved):
                     ?>
+                </p>
                     <table class="table table-hover mt-5">
                         <thead>
                             <tr class="table-primary">
@@ -157,7 +158,6 @@ if (isset($_POST['solve'])) {
                                     <?php echo $a_result ?>
                                 </td>
                                 <td>
-
                                     <?php echo $b_result ?>
                                 </td>
                             </tr>

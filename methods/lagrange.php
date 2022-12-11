@@ -29,7 +29,7 @@ if (isset($_POST['solve'])) {
         $n = $_POST['n'];
     }
     if (empty($_POST['xp'])) {
-        $errors['xp'] = 'interpolation point is required <br />';
+        $errors['xp'] = 'interpolation point is required';
     } else {
         $xp = $_POST['xp'];
     }
@@ -68,16 +68,16 @@ if (isset($_POST['solve'])) {
     <div class="w-60 px-2 py-3 mx-auto">
 
         <div class="input-group mb-3 d-flex align-items-center ">
-            <label class="mx-2" for="n">Enter Number</label>
+            <label class="mx-2 " for="n">Enter Number</label>
             <label>
                 <input type="number" name="n" class="form-control py-1"
-                    value="<?php echo htmlspecialchars(empty($n) ? 0 : $n) ?>" max="500" min="2" aria-describedby="n">
+                    value="<?php echo htmlspecialchars(empty($n) ? 0 : $n) ?>" max="500" min="2" aria-describedby="n" style="width: 70px;" required>
             </label>
-            <div style="color: red;">
+            <!-- <div style="color: red;">
                 <?php echo $errors['n']; ?>
-            </div>
+            </div> -->
         </div>
-        <input class="btn btn-primary w-100 d-block" type="submit" value="Execute" name="submit">
+        <input class="btn btn-primary w-100 d-block" type="submit" value="Execute" name="submit" required>
 
         <?php if ($isSubmitted): ?>
 
@@ -99,14 +99,14 @@ if (isset($_POST['solve'])) {
                     <th scope="row">
                         <label>
                             <input class="form-control py-1" name="<?php echo 'x' . $i ?>" type="number" step="any"
-                                value="<?php echo htmlspecialchars($x_array[$i]) ?>">
+                                value="<?php echo htmlspecialchars($x_array[$i]) ?>" required>
 
                         </label>
                     </th>
                     <th scope="row">
                         <label>
                             <input class="form-control py-1" name="<?php echo 'y' . $i ?>" type="number" step="any"
-                                value="<?php echo htmlspecialchars($y_array[$i]) ?>">
+                                value="<?php echo htmlspecialchars($y_array[$i]) ?>" required>
                         </label>
                     </th>
                 </tr>
@@ -115,29 +115,33 @@ if (isset($_POST['solve'])) {
                 ?>
             </tbody>
         </table>
-        <label class="mx-2" for="n">interpolation point</label>
 
-        <label>
-            <input class="form-control py-1" type="text" name="xp" step="any" value="<?php echo htmlspecialchars($xp) ?>"
-                aria-describedby="xp">
-        </label>
-        <div style="color: red;">
-            <?php echo $errors['xp']; ?>
+        <div class="d-flex justify-content-between align-items-center">
+
+            <label class="mx-2" for="n">interpolation point</label>
+
+            <label>
+                <input class="form-control py-1" type="number" name="xp" step="any"  style="width: 70px;"
+                    aria-describedby="xp" required>
+            </label>
+            <!-- <div style="color: red;">
+                <?php echo $errors['xp']; ?>
+            </div> -->
+                <input class="btn btn-primary w-50 d-block" name="solve" type="submit" value="Solve" required>
+            <?php endif; ?>
+
         </div>
-        <label>
-            <input class="btn btn-primary w-100 d-block" name="solve" type="submit" value="Solve">
-        </label>
-        <?php endif; ?>
+
         <center>
             <div style="color: red; text-align: center;">
                 <h3 style="font-size: medium;">
                     <?php echo $errors['divideByZeroError']; ?>
                 </h3>
             </div>
-            <div style="color: red; text-align: center;">
-                <h3 style="font-size: medium;">
+            <div style="color: red; text-align: center; margin-bottom: 10px;">
+                <!-- <h3 style="font-size: medium;">
                     <?php echo $errors['invalidInput']; ?>
-                </h3>
+                </h3> -->
             </div>
             <div>
                 <h3 style="font-size: x-large; color: green;">

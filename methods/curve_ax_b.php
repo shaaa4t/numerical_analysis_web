@@ -77,11 +77,11 @@ if (isset($_POST['solve'])) {
             <label class="mx-2" for="n">Enter Number</label>
             <label>
                 <input type="text" name="n" class="form-control py-1" 
-                    value="<?php echo htmlspecialchars(empty($n) ? 0 : $n) ?>" max="500" min="2" aria-describedby="n">
+                    value="<?php echo htmlspecialchars(empty($n) ? 0 : $n) ?>" max="500" min="2" aria-describedby="n" required>
             </label>
-            <div style="color: red;">
+            <!-- <div style="color: red;">
                 <?php echo $errors['n']; ?>
-            </div>
+            </div> -->
         </div>
         <input class="btn btn-primary w-100 d-block" type="submit" value="Execute" name="submit">
 
@@ -103,15 +103,12 @@ if (isset($_POST['solve'])) {
                         <?php echo $i + 1 ?>
                     </th>
                     <th scope="row">
-                        <label>
-                            <input class="form-control py-1" name="<?php echo 'x' . $i ?>" type="number" step="any"
+                            <input class="form-control py-1" name="<?php echo 'x' . $i ?>" type="number" step="any" required
                                 value="<?php echo htmlspecialchars($x_array[$i]) ?>">
-
-                        </label>
                     </th>
                     <th scope="row">
                         <label>
-                            <input class="form-control py-1" name="<?php echo 'y' . $i ?>" type="number" step="any"
+                            <input class="form-control py-1" name="<?php echo 'y' . $i ?>" type="number" step="any" required
                                 value="<?php echo htmlspecialchars($y_array[$i]) ?>">
                         </label>
                     </th>
@@ -121,9 +118,7 @@ if (isset($_POST['solve'])) {
                 ?>
             </tbody>
         </table>
-        <label>
-            <input class="btn btn-primary w-100 d-block" name="solve" type="submit" value="Solve">
-        </label>
+            <input class="btn btn-primary w-100 d-block mt-4" name="solve" type="submit" value="Solve">
         <?php endif; ?>
         <center>
             <div style="color: red; text-align: center;">

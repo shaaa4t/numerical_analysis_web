@@ -72,8 +72,10 @@
           include('./methods/curve_ax_b.php');
         } else if (isset($_GET['curve_ab^x'])) {
           include('./methods/curve_ab_x.php');
+        } else {
+          include('./methods/Bisection.php');
         }
-
+        
         ?>
       </div>
 

@@ -93,43 +93,42 @@ if (isset($_POST['submit'])) {
     <div class="w-60 px-2 py-3 mx-auto">
         <div class="input-group mb-3 d-flex align-items-center">
             <label class="mx-2" for="fx">f(x)</label>
-            <input type="text" class="form-control py-1" name="fun" value="<?php echo htmlspecialchars($fun) ?>"
-                   placeholder="Write the function f(x)" aria-label="Write the function f(x)" aria-describedby="fx">
-            <span style="color: red;" class="error">
+            <input type="text" class="form-control py-1" name="fun" value="<?php echo htmlspecialchars($fun) ?>" required placeholder="Write the function f(x)" aria-label="Write the function f(x)" aria-describedby="fx">
+            <!-- <span style="color: red;" class="error">
                 <?php echo $errors['fun']; ?>
-            </span>
+            </span> -->
         </div>
 
         <div class="input-group mb-3 d-flex align-items-center justify-content-between ">
             <label class="mx-2" for="p0">p0</label>
             <!--  value="<?php echo htmlspecialchars($p0) ?>" -->
             <input type="text" name="p0" value="<?php echo htmlspecialchars($x0) ?>" class="form-control py-1"
-                   placeholder="p0" aria-label="p0" aria-describedby="p0">
-            <span style="color: red;" class="error">
+                   placeholder="p0" aria-label="p0" aria-describedby="p0" required>
+            <!-- <span style="color: red;" class="error">
                 <?php echo $errors['p0']; ?>
-            </span>
+            </span> -->
             <label class="mx-2" for="p1">p1</label>
             <input type="text" name="p1" value="<?php echo htmlspecialchars($x1) ?>" class="form-control py-1"
-                   placeholder="p1" aria-label="p1" aria-describedby="p1">
-            <span style="color: red;" class="error">
+                   placeholder="p1" aria-label="p1" aria-describedby="p1" required>
+            <!-- <span style="color: red;" class="error">
                 <?php echo $errors['p1']; ?>
-            </span>
+            </span> -->
         </div>
 
         <div class="input-group mb-3 d-flex align-items-center ">
             <label class="mx-2" for="n">maximum repetition n</label>
-            <input type="number" name="n" class="form-control py-1" value="<?php echo htmlspecialchars($n) ?>" max="500"
+            <input type="number" name="n" class="form-control py-1" value="<?php echo htmlspecialchars($n) ?>" max="500" required
                    min="5" aria-describedby="n">
-            <span style="color: red;" class="error">
+            <!-- <span style="color: red;" class="error">
                 <?php echo $errors['n']; ?>
-            </span>
+            </span> -->
         </div>
 
-        <input class="btn btn-primary w-100 d-block" type="submit" value="Execute" name="submit">
+        <input class="btn btn-primary w-100 d-block" type="submit" value="Execute" name="submit" required>
         <div style="color: red; text-align: center;">
-            <h3 style="font-size: medium;">
+            <!-- <h3 style="font-size: medium;">
                 <?php echo $errors['p0_equal_p1']; ?>
-            </h3>
+            </h3> -->
         </div>
 
         <?php if ($isSubmitted): ?>
@@ -161,9 +160,9 @@ if (isset($_POST['submit'])) {
         <!---->
         <!-- if user enter invalid function as: xx -->
         <div style="color: red; text-align: center;">
-            <h3 style=" font-size: medium;">
+            <!-- <h3 style=" font-size: medium;">
                 <?php echo $errors['invalidFunction']; ?>
-            </h3>
+            </h3> -->
         </div>
     </div>
 </form>
