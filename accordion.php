@@ -67,6 +67,16 @@
             <a href ="?curve_ab^x=1">Curve Fitting ab<sup>x</sup></a>
             </div>
         </div>
+        <div class="wrapper">
+            <button class="toggle">
+                Chapter 6
+                <i class="fas fa-plus icon"></i>
+            </button>
+            <div class="content">
+            <a href ="?trapezoidal=1">Trapezoidal Rule</a>
+            <a href ="?simpson1_3=1">Simpson's 1/3 Rule</a>
+            </div>
+        </div>
 
 
 </div>

@@ -57,9 +57,9 @@
       <!--  -->
 
       <div class="col-12 col-xl-9 px-3">
-        <div id="mohammed">
+        <!-- <div id="mohammed">
 
-        </div>
+        </div> -->
         <?php
 
         if (isset($_GET['bisection'])) {
@@ -72,7 +72,11 @@
           include('./methods/curve_ax_b.php');
         } else if (isset($_GET['curve_ab^x'])) {
           include('./methods/curve_ab_x.php');
-        } else {
+        } else if (isset($_GET['trapezoidal'])) {
+        include('./methods/trapezoidal.php');
+      }else if (isset($_GET['simpson1_3'])) {
+        include('./methods/simpson1_3.php');
+      } else {
           include('./methods/Bisection.php');
         }
         
@@ -82,14 +86,14 @@
     </div>
   </div>
 
-  <script>
+  <!-- <script>
     let mohammed = document.getElementById('mohammed');
     if (window.location.href === "http://localhost:1234/numerical_analysis/" || window.location.href === "http://localhost:1234/numerical_analysis/index.php") {
       mohammed.textContent = "Please Choose The Method From The List";
     } else {
       mohammed.remove()
     }
-  </script>
+  </script> -->
 
   <script src="./public/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

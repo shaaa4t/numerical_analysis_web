@@ -71,7 +71,8 @@ if (isset($_POST['solve'])) {
             <label class="mx-2 " for="n">Enter Number</label>
             <label>
                 <input type="number" name="n" class="form-control py-1"
-                    value="<?php echo htmlspecialchars(empty($n) ? 0 : $n) ?>" max="500" min="2" aria-describedby="n" style="width: 70px;" required>
+                    value="<?php echo htmlspecialchars(empty($n) ? 0 : $n) ?>" max="500" min="2" aria-describedby="n"
+                    style="width: 70px;" required>
             </label>
             <!-- <div style="color: red;">
                 <?php echo $errors['n']; ?>
@@ -121,13 +122,13 @@ if (isset($_POST['solve'])) {
             <label class="mx-2" for="n">interpolation point</label>
 
             <label>
-                <input class="form-control py-1" type="number" name="xp" step="any"  style="width: 70px;"
-                    aria-describedby="xp" required>
+                <input class="form-control py-1" type="number" name="xp" step="any" style="width: 70px;"
+                    aria-describedby="xp" value="<?php echo htmlspecialchars($xp) ?>" required>
             </label>
             <!-- <div style="color: red;">
                 <?php echo $errors['xp']; ?>
             </div> -->
-                <input class="btn btn-primary w-50 d-block" name="solve" type="submit" value="Solve" required>
+            <input class="btn btn-primary w-50 d-block" name="solve" type="submit" value="Solve" required>
             <?php endif; ?>
 
         </div>
@@ -138,11 +139,7 @@ if (isset($_POST['solve'])) {
                     <?php echo $errors['divideByZeroError']; ?>
                 </h3>
             </div>
-            <div style="color: red; text-align: center; margin-bottom: 10px;">
-                <!-- <h3 style="font-size: medium;">
-                    <?php echo $errors['invalidInput']; ?>
-                </h3> -->
-            </div>
+
             <div>
                 <h3 style="font-size: x-large; color: green;">
                     <?php echo $isSolved ? 'f(' . $xp . ') = ' . $result : ''; ?>

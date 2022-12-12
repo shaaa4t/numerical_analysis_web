@@ -76,7 +76,7 @@ if (isset($_POST['solve'])) {
         <div class="input-group mb-3 d-flex align-items-center ">
             <label class="mx-2" for="n">Enter Number</label>
             <label>
-                <input type="text" name="n" class="form-control py-1" 
+                <input type="number" name="n" class="form-control py-1" 
                     value="<?php echo htmlspecialchars(empty($n) ? 0 : $n) ?>" max="500" min="2" aria-describedby="n" required>
             </label>
             <!-- <div style="color: red;">
